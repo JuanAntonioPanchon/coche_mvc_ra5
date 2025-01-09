@@ -12,6 +12,7 @@ class CocheTest {
     @BeforeEach
     void setUp() {
         coche = new Coche();
+        System.out.println("TEST");
     }
     
     @Test
