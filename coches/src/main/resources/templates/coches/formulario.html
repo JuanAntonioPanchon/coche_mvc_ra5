@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Coche</title>
+</head>
+<body>
+    <h1 th:if="${coche.id == null}">Agregar Coche</h1>
+    <h1 th:if="${coche.id != null}">Editar Coche</h1>
+
+    <form th:action="@{/coches}"th:object="${coche}" th:method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" th:field="*{marca}" required /><br>
+
+        <label for="matricula">Matrícula:</label>
+        <input type="text" id="matricula" name="matricula" th:field="*{matricula}" required /><br>
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" th:field="*{color}" required /><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a th:href="@{/coches}">Volver a la lista</a>
+</body>
+</html>
