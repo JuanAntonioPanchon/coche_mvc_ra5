@@ -38,6 +38,12 @@ El proyecto está organizado en diferentes ramas que representan pasos en el des
 
 5. **Paso 5 - Vistas Thymeleaf**:
    - Creación de vistas dinámicas para la interacción del usuario.
+  
+6. **Paso 6 - Validaciones**:
+   - Se añaden validaciones con las anotaciones apropiadas en:
+     + Entidad (@NotBlank, @Size, @Pattern...)
+     + Controlador(@Valid y uso de BindingResult)
+     + Vistas (th:if="${#fields.hasErrors('atributo')}" th:errors="*{atributo}")
 
 ---
 
