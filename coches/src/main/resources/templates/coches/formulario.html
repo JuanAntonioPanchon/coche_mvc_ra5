@@ -2,6 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Formulario de Coche</title>
+	<style>
+		.error{
+			color:red;
+		}
+	</style>
 </head>
 <body>
     <h1 th:if="${coche.id == null}">Agregar Coche</h1>
@@ -9,12 +14,17 @@
 
     <form th:action="@{/coches}"th:object="${coche}" th:method="post">
         <input type="hidden" th:field="*{id}" />
+		
+		<div class="error" th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></div>
         <label for="marca">Marca:</label>
         <input type="text" id="marca" name="marca" th:field="*{marca}" required /><br>
-
+		
+		
+		<div class="error" th:if="${#fields.hasErrors('matricula')}" th:errors="*{matricula}"></div>
         <label for="matricula">Matrícula:</label>
         <input type="text" id="matricula" name="matricula" th:field="*{matricula}" required /><br>
-
+		
+		<div class="error" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
         <label for="color">Color:</label>
         <input type="text" id="color" name="color" th:field="*{color}" required /><br>
 

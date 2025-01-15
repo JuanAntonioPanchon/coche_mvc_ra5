@@ -4,14 +4,17 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.hlc.coches.entidad.*;
+import com.hlc.coches.entidad.Coche;
 import com.hlc.coches.servicio.CocheServicio;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/coches")
@@ -48,7 +51,11 @@ public class CocheControlador {
 
     // Guardar un coche nuevo
     @PostMapping
-    public String guardarCoche(@ModelAttribute("coche") Coche coche) {
+    public String guardarCoche(@Valid @ModelAttribute("coche") Coche coche, BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+    		 return VISTA_FORMULARIO; // volver a la vista del formulario si hay errores
+    	}
+    	
         cocheServicio.guardarCoche(coche);
         return REDIRECT_COCHE;
     }

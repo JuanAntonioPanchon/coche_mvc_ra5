@@ -22,9 +22,9 @@ public class InicializarDatos {
 	 @PostConstruct
 	  public void init() {
 		 
-	     Coche coche1 = new Coche("Toyota", "1234ABC", "Rojo");
-	     Coche coche2 = new Coche("Ford", "5678DEF", "Azul");
-	     Coche coche3 = new Coche("Honda", "9101GHI", "Negro");
+	     Coche coche1 = new Coche("Toyota", "1234ABC", "rojo");
+	     Coche coche2 = new Coche("Ford", "5678DEF", "azul");
+	     Coche coche3 = new Coche("Honda", "9101GHI", "amarillo");
 	     
 	     
 		 cocheRepositorio.save(coche1);
