@@ -73,7 +73,7 @@ public class CocheControladorTest {
         mockMvc.perform(post("/coches")
                 .param("marca", "Toyota")
                 .param("matricula", "1234ABC")
-                .param("color", "Rojo"))
+                .param("color", "rojo"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/coches"));
 
