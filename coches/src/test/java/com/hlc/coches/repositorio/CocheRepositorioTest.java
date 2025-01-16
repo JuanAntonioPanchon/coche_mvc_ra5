@@ -20,8 +20,8 @@ public class CocheRepositorioTest {
     @Test
     void testSaveAndFindAll() {
         // Crear y guardar coches
-        Coche coche1 = new Coche("Toyota", "1234ABC", "Rojo");
-        Coche coche2 = new Coche("Ford", "5678DEF", "Azul");
+        Coche coche1 = new Coche("Toyota", "1234ABC", "rojo");
+        Coche coche2 = new Coche("Ford", "5678DEF", "azul");
 
         cocheRepositorio.save(coche1);
         cocheRepositorio.save(coche2);
